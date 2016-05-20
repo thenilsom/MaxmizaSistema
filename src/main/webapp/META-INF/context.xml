@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Context>
+	<Resource name="BeanManager" auth="Container"
+		type="javax.enterprise.inject.spi.BeanManager" factory="org.jboss.weld.resources.ManagerObjectFactory" />
+
+	<Resource name="jdbc/saa" auth="Container"
+		factory="org.apache.naming.factory.BeanFactory" type="com.mchange.v2.c3p0.ComboPooledDataSource"
+		driverClass="org.postgresql.Driver" jdbcUrl="jdbc:postgresql://localhost:5432/saa"
+		user="autocom" password="Autocom" minPoolSize="10" maxPoolSize="15" />
+
+</Context>

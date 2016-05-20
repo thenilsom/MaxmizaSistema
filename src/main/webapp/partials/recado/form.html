@@ -1,0 +1,84 @@
+<div class="row row-center">
+
+	<div class="col-sm-7 col-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<h2 class="panel-title">Cadastro De Recados</h2>
+			</div>
+
+			<div class="panel-body">
+	
+				<form name="formRecado" class="form form-horizontal" role="form">
+				
+				<div class="form-group" data-ng-show="$acao.isAcaoVisualizar()">
+					<label for="txtDe" class="col-sm-2 control-label">De:</label>
+					<div class="col-sm-10">
+					<input type="text" class="form-control" data-ng-model="recado.de.nome"
+					disabled="disabled">
+					</div>
+				</div>
+
+					<div class="form-group">
+						<label for="txtPara" class="col-sm-2 control-label">Para:</label>
+						<div class="col-sm-10">
+							<tags-input id="txtPara" data-ng-blur="validaUsuario()"
+								ng-model="recado.para" display-property="nome"
+								key-property="id" placeholder="Informe o Usuario"
+								add-on-blur="true" name="usuarios"
+								data-ng-disabled="$acao.isAcaoVisualizar()"> 
+								
+								<auto-complete
+								source="loadUsuarios($query)" min-length="0" debounce-delay="1"
+								max-results-to-show="10">
+								</auto-complete> 
+																
+								<span
+								class="validation-invalid"data-ng-show="usuariosTagInputInvalido"> {{msgUsuarios}}
+							</span>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label for="txtRecado" class="col-sm-2 control-label">Recado:</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" id="txtRecado"  data-valid-method="submit" 
+								      rows="4" name="recado.recado" data-validator="required"
+								      data-ng-model="recado.recado"  data-ng-disabled="$acao.isAcaoVisualizar()"
+       								  maxlength="300" style="resize:none;">
+       						</textarea>			  
+						</div>
+					</div>
+
+					<div class="form-group last">
+
+						<div class="col-md-12">
+						
+						<button class="btn btn-default" data-ng-click="voltar()"
+								data-ng-show="$acao.isAcaoVisualizar()" tabindex='1'> 
+								<span class="glyphicon glyphicon-share-alt"></span> Voltar</button>
+
+							<button class="btn btn-success" data-ng-click="salvar()"
+								data-ng-hide="$acao.isAcaoVisualizar()" tabindex='2'
+								data-validation-submit="formRecado"> <span
+								class="glyphicon glyphicon-ok"></span> Salvar</button>
+																
+								<a class="btn btn-danger" data-ng-click="voltar()"
+								data-ng-hide="$acao.isAcaoVisualizar()"> <span
+								class="glyphicon glyphicon-remove"></span> Cancelar</a>
+
+						</div>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+	
+</div>

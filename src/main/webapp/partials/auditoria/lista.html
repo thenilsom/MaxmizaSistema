@@ -1,0 +1,100 @@
+<div class="row">
+	<form name="formFiltro" class="form-inline">
+		<div class="panel panel-default panel-filtro">
+			<div class="form-group">
+				<label for="dataInicial">Data Inicial:</label> 
+				<input data-datepicker type="text" id="dataInicial" data-ng-maskedinput='99/99/9999' 
+				       data-ng-tabindex='1' data-ng-model="filtro.dataInicial" class="form-control data-filtro"> 
+					
+				<label >Data Final:</label> 
+				<input data-datepicker data-inicial="{{filtro.dataInicial}}" type="text" id="dataFinal"
+					data-ng-tabindex='2' data-ng-maskedinput='99/99/9999' data-ng-model="filtro.dataFinal" class="form-control data-filtro">
+					
+				<label >Ação:</label> 
+				<select name="acao" data-ng-model="filtro.acao" id="acao" data-ng-tabindex='3'
+				        data-ng-options="key as val for (key, val) in acoes" class="form-control">
+					<option value="">Todos</option>
+				</select> 
+				
+				<label >Usuário:</label>
+				<select	name="usuario" data-ng-model="filtro.usuario" id="usuario" data-ng-tabindex='4'
+					    data-ng-options="usuario.nome for usuario in usuarios" class="form-control">
+					<option value="">Todos</option>
+				</select> 
+				<label >Tabela:</label> 
+				<select name="tabela" data-ng-model="filtro.tabela" id="tabela" data-ng-tabindex='5'
+					    data-ng-options="key as val for (key, val) in tabelas" class="form-control">
+					<option value="">Todos</option>
+				</select> 
+				
+				<button class="btn btn-primary form-control" id="botaoFiltro"  data-ng-click="filtrar()" >
+				    <span class="glyphicon glyphicon-search"></span> Filtrar
+                </button>
+			</div>
+		</div>
+
+		<div class="panel panel-default panel-tabela">
+
+			<div class="tabela">
+				<div id="scrollable-area">
+					<table
+						class="table table-striped table-bordered table-condensed table-fixedheader">
+						<thead>
+							<tr data-ng-init="fieldName = 'data'">
+								<th class="col-sm-3" data-order data-ng-click="order('data')">Data
+									<div data-ng-show="fieldName == 'data'"
+										data-ng-class="{reverse:reverse}"></div>
+								</th>
+								<th class="col-sm-2" data-order data-ng-click="order('acao')">Ação
+									<div data-ng-show="fieldName == 'acao'"
+										data-ng-class="{reverse:reverse}"></div>
+								</th>
+								<th class="col-sm-3" data-order data-ng-click="order('usuario')">Usuário
+									<div data-ng-show="fieldName == 'usuario'"
+										data-ng-class="{reverse:reverse}"></div>
+								</th>
+								<th class="col-sm-2" data-order data-ng-click="order('tabela')">Tabela
+									<div data-ng-show="fieldName == 'tabela'"
+										data-ng-class="{reverse:reverse}"></div>
+								</th>
+								<th class="col-sm-2" data-order
+									data-ng-click="order('entidade_id')">ID
+									<div data-ng-show="fieldName == 'entidade_id'"
+										data-ng-class="{reverse:reverse}"></div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								data-ng-repeat="auditoria in listaTabela | filter:search | orderBy:fieldName:reverse as filtros">
+								<td class="col-sm-3 ">{{auditoria.data | date: "dd/MM/yyyy HH:mm:ss" : "UTC"}}</td>
+								<td class="col-sm-2 ">{{getDescricaoAcao(auditoria.acao)}}</td>
+								<td class="col-sm-3 ">{{auditoria.usuario.nome}}</td>
+								<td class="col-sm-2 ">{{getDescricaoTabela(auditoria.tabela)}}</td>
+								<td class="col-sm-2 ">{{auditoria.entidade_id}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer panel-footer-tabela">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="input-group">
+							<span class="input-group-addon"> <span
+								class="glyphicon glyphicon-search"></span>
+							</span> <input id="inputFiltro" type="text" data-focus
+								class="form-control" placeholder="Pesquisa"
+								data-ng-model="search.$">
+						</div>
+					</div>
+					<div class="col-offset-md-3 text-right registros-tabela">
+						<span>Total de Registros: {{filtros.length}}</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+
+</div>

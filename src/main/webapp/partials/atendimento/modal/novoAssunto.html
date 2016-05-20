@@ -1,0 +1,50 @@
+<div class="row row-mg-2">
+
+	<div class="col-sm-10 col-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<h2 class="panel-title">Cadastro De Assuntos</h2>
+			</div>
+
+			<div class="panel-body">
+
+				<form name="formAssunto" class="form form-horizontal" role="form">
+
+					<div class="form-group">
+						<label for="txtDescricao" class="col-lg-2 control-label">Descrição:</label>
+						<div class="col-lg-10">
+							<input type="text" data-focus data-ng-tabindex='1'
+								class="form-control"
+								id="txtDescricao" data-validator="required"
+								data-valid-method="submit" name="assunto.descricao"
+								data-ng-model="assunto.descricao" maxlength="50">
+						</div>
+					</div>
+
+					<div class="form-group last">
+
+						<div class="col-md-12">
+
+							<button class="btn btn-success" data-ng-click="novoAssunto()"
+								tabindex='2'
+								data-validation-submit="formAssunto"> <span
+								class="glyphicon glyphicon-ok"></span> Salvar</button>
+																
+								<a class="btn btn-danger"  data-ng-click="toogleAssunto('listar')"
+								data-ng-Hide-Popup="modalAssunto"> <span
+								class="glyphicon glyphicon-remove"></span> Cancelar</a>
+
+						</div>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>

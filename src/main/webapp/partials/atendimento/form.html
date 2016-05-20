@@ -1,0 +1,201 @@
+<div class="row row-center" >
+
+	<div class="col-sm-12 col-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<div class="form-group">
+					<div class="col-sm-11">
+						<h2 class="panel-title">Cadastro de Atendimento</h2>
+					</div>
+					<div class="col-sm-1">
+						<input type="checkbox" class="glyphicon glyphicon-star-empty" 
+						data-ng-model= "atendimento.favorito" data-toggle="tooltip"  data-ng-disabled="$acao.isAcaoVisualizar()"
+						title="{{atendimento.favorito ?'Remover':'Adicionar'}} este atendimento a favoritos!">
+						 
+					</div>
+				</div>	
+			</div>
+
+			<div class="panel-body">
+
+				<form name="formAtendimento" class="form form-horizontal" role="form" >
+					<div class="form-group">
+						<label for="txtInício" class="col-sm-1 control-label">Cod.:</label>
+						<div class="col-sm-1">
+							<span class="form-control"> {{atendimento.id}}</span>
+						</div>
+						
+						<label for="txtInício" class="col-sm-1 control-label">Início:</label>
+						<span class="label label-default col-sm-2 form-control"> {{atendimento.dataInicio | date: "dd/MM/yyyy HH:mm:ss" : "UTC" }}</span>
+	
+						<label for="txtDataInicio" class="col-sm-1 control-label">Fim:</label>
+						<span class="label label-default col-sm-2 form-control"> {{atendimento.dataFim | date: "dd/MM/yyyy HH:mm:ss" : "UTC" }}</span>
+
+						<label for="txtStatus" class="col-sm-1 control-label">Status:</label>
+						<div class="col-sm-2"    >
+							<select id="txtStatus" name="status" 
+							        data-ng-model="atendimento.status" data-ng-disabled="$acao.isAcaoVisualizar()" 
+							        class="form-control" data-ng-options="key as val for (key, val) in status">
+							</select>
+						</div>
+					</div>
+					<div class="form-group"  >
+						<label for="txtClientes" class="col-sm-1 control-label">Cliente:</label>
+						<div class="col-sm-5"   >
+						     <input type="text"   data-ng-model="atendimento.cliente" 
+						            placeholder="Infome o Cliente"  name="cliente"
+						            data-uib-typeahead="cliente as cliente.nomeFantasia for cliente in clientes | filter:$viewValue | limitTo:13" 
+						            class="form-control" data-ng-disabled="$acao.isAcaoVisualizar()"
+						         	data-focus >
+						            <span class="validation-invalid" 
+					                  data-ng-show="clienteTagInputInvalido">
+										{{msgCliente}}
+									</span>       
+						</div>
+						<label for="txtContato" class="col-sm-2 control-label">Contato:</label>
+						<div class="col-sm-4"   >
+							<input type="text"  id="txtContato" data-ng-blur="validaContato()"
+							        data-ng-disabled="$acao.isAcaoVisualizar()"
+      								name="contato" 
+      								data-ng-model="atendimento.contato" 
+      								class="form-control" maxlength="100">
+      								<span class="validation-invalid" 
+					                  data-ng-show="contatoTagInputInvalido">
+										Campo com preenchimento obrigatório.
+									</span>	
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="txtAssuntos" class="col-sm-1 control-label">Assunto:</label>
+						<div class="col-sm-11"   >
+							<div class="input-group">
+				
+								<span class="input-group-btn">
+									<a class="btn btn-default btn-assunto" data-toggle="modal" id="showModal"
+										data-ng-Show-Popup="modalAssunto">
+										<span class="glyphicon glyphicon-search"></span>
+									</a>
+								</span>
+
+								<tags-input  
+							             id="txtAssuntos" data-ng-blur="validaAssunto()"
+							             ng-model="atendimento.assuntos" display-property="descricao"
+				  		                 key-property="id"  placeholder="Informe o Assunto"
+				  		                 name="assunto" data-ng-disabled="$acao.isAcaoVisualizar()"
+				  		                 add-on-blur="true">   
+				  		         
+				      		    <auto-complete source="loadAssuntos($query)"
+				      		               min-length="0" 
+						                   debounce-delay="1" 
+				                           max-results-to-show="10">
+				                </auto-complete>
+				             
+				             </tags-input>
+				            </div>
+				             
+				            <span class="validation-invalid" 
+				                  data-ng-show="assuntoTagInputInvalido">
+								{{msgAssunto}}
+							</span> 
+							                                            
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="txtUsuarios" class="col-sm-1 control-label">Atendente:</label>
+						<div class="col-sm-7"   >
+							 <tags-input  id="textAtendentes" data-ng-blur="validaUsuario()"
+							 			  ng-model="atendimento.usuarios" 
+				  		                  display-property="nome" key-property="id" 
+						                  placeholder="Informe o Atendente" add-on-blur="true"
+						                  name="usuarios" data-ng-disabled="$acao.isAcaoVisualizar()">
+				               
+				      		<auto-complete  source="loadUsuarios($query)" 
+				      					    min-length="0" 
+						                    debounce-delay="1"
+						                    max-results-to-show="10"	
+				             ></auto-complete>
+				             <span class="validation-invalid" 
+				                  data-ng-show="usuariosTagInputInvalido">
+								{{msgUsuarios}}
+							</span>               
+						</div> 
+						<label for="txtUsuarios" class="col-sm-1 control-label">Solução:</label>
+						<div class="col-sm-3"   >
+							<span class="form-control"> {{atendimento.usuarioSolucao.nome }}</span>
+						</div>
+					</div>			
+										
+					<div class="form-group">
+						<label for="txtProblema" class="col-sm-1 control-label">Problema:</label>
+						<div class="col-sm-11">
+							<textarea class="form-control" id="txtProblema" 
+								      rows="4" name="atendimento.problema"
+								      data-ng-model="atendimento.problema"  data-ng-disabled="$acao.isAcaoVisualizar()"
+       								  maxlength="500" style="resize:none;">
+       						</textarea>
+       						<span class="validation-invalid" 
+				                  data-ng-show="invalidoProblema">
+								Campo com preenchimento obrigatório.
+							</span>		  
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="txtSolucao" class="col-sm-1 control-label">Solução:</label>
+						<div class="col-sm-11">
+							<textarea class="form-control" id="txtSolucao" 
+								     rows="4" name="atendimento.solucao" data-ng-disabled="$acao.isAcaoVisualizar()"
+       								 data-ng-model="atendimento.solucao" maxlength="500"
+       								 style="resize:none;">
+       						</textarea>
+       						<span class="validation-invalid" 
+				                  data-ng-show="invalidoSolucao">
+								Campo com preenchimento obrigatório.
+							</span>		 
+						</div>
+					</div>
+					
+
+					<div class="form-group last" >
+						<div class="col-sm-12">
+						    <button id="btnSalvar" name="Salvar"
+						    		class="btn btn-success"  data-ng-click="salvar()"
+						    		data-ng-hide="$acao.isAcaoVisualizar()" 
+						    		data-validation-submit="formAtendimento">
+						    	<span class="glyphicon glyphicon-ok"></span> Salvar
+						    </button>
+						    
+					        <a data-ng-disabled="$security.hasRoles(['TECNICO']) && atendimento.status == 'FINALIZADO'"
+					         class="btn btn-info" data-ng-click="alterar(atendimento)" 
+				       		  data-ng-show="$acao.isAcaoVisualizar()" 
+				       		  data-validation-submit="formAtendimento">
+					        	<span class="glyphicon glyphicon-pencil"></span> Alterar
+					        </a>
+					        
+					       <a class="btn btn-danger" data-ng-click="cancelar()">
+					        	<span class="glyphicon glyphicon-remove"></span> Cancelar
+					       </a>
+					       
+				      </div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+	
+	<!-- Modal Assunto -->	
+	<div data-ng-Popup  id="modalAssunto" tabindex="-1">
+		 <div data-ng-include="'partials/atendimento/modal/listaAssunto.html'" data-ng-if="modal == 'listar'"></div>
+		  <div data-ng-include="'partials/atendimento/modal/novoAssunto.html'" data-ng-if="modal == 'incluir'"></div>
+	</div>
+	      
+</div>
+ <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>

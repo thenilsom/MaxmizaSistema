@@ -1,0 +1,145 @@
+ <div class="row row-center" >
+
+	<div class="col-md-12 col-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<h2 class="panel-title">Filtros</h2>
+			</div>
+
+			<div class="panel-body">
+
+				<form name="formFiltro" class="form-horizontal">
+
+					<!-- Data Inicial -->
+					<div class="form-group">
+						<label for="dataInicial" class="col-md-3 control-label">Data
+							Inicial:</label>
+						<div class="col-md-3">
+							<input data-datepicker type="text" id="dataInicial"
+								data-ng-maskedinput='99/99/9999' data-ng-tabindex='1'
+								data-ng-model="filtroGeral.dataInicial"
+								class="form-control data-filtro ">
+						</div>
+					
+						<label for="dataFinal" class="col-md-3 control-label">Data
+							Final:</label>
+						<div class="col-md-3">
+							<input data-datepicker data-inicial="{{filtroGeral.dataInicial}}"
+								type="text" id="dataFinal" data-ng-tabindex='2'
+								data-ng-maskedinput='99/99/9999'
+								data-ng-model="filtroGeral.dataFinal"
+								class="form-control data-filtro">
+						</div>
+					</div>
+
+					<!-- AutoComplete Usuario -->
+					<div data-ng-if="$security.hasRoles(['ADMIN' , 'SECRETARIA'])" class="form-group">
+						<label for="usuario" class="col-sm-3 control-label">Atendente:</label>
+						<div class="col-sm-9">
+							<input type="text" data-ng-model="filtroGeral.usuario"
+								placeholder="Atendente" id="usuario"
+								data-uib-typeahead="usuario as usuario.nome for usuario in usuarios | filter:$viewValue | limitTo:13"
+								class="form-control" data-ng-tabindex='3'>
+
+						</div>
+
+					</div>
+
+					<!-- AutoComplete Assunto -->
+					<div class="form-group">
+						<label for="assunto" class="col-sm-3 control-label">Assunto:</label>
+						<div class="col-sm-9">
+							<input type="text" data-ng-model="filtroGeral.assunto"
+								placeholder="Assunto" id="assunto"
+								data-uib-typeahead="assunto as assunto.descricao for assunto in assuntos | filter:$viewValue | limitTo:13"
+								class="form-control" data-ng-tabindex='4'>
+
+						</div>
+
+					</div>
+
+					<!-- AutoComplete Cliente -->
+					<div class="form-group">
+						<label for="clientes" class="col-sm-3 control-label">Cliente:</label>
+						<div class="col-sm-9">
+							<input type="text" data-ng-model="filtroGeral.cliente"
+								placeholder="Cliente" name="cliente" id="cliente"
+								data-uib-typeahead="cliente as cliente.nomeFantasia for cliente in clientes | filter:$viewValue | limitTo:13"
+								class="form-control" data-ng-tabindex='5'>
+
+						</div>
+
+					</div>
+
+					<!--Categoria Cliente -->
+					<div class="form-group" data-ng-controller="CategoriaController">
+						<label for="categoria" class="col-md-3 control-label">Categoria:</label>
+						<div class="col-md-9">
+							<select name="categoria" data-ng-model="filtroGeral.categoria"
+								id="categoria" class="form-control" data-ng-tabindex='6'
+								data-ng-options="key as val for (key, val) in categorias">
+								<option value="">Todas</option>
+							</select>
+						</div>
+					</div>
+
+
+					<!-- Status -->
+					<div class="form-group">
+						<label for="status" class="col-md-3 control-label">Status:</label>
+						<div class="col-md-9">
+							<select id="status" name="status"
+								data-ng-model="filtroGeral.status" class="form-control"
+								data-ng-options="key as val for (key, val) in status"
+								data-ng-tabindex='7'>
+								<option value="">Todas</option>
+							</select>
+						</div>
+					</div>
+
+
+
+					<!-- Favorito -->
+					<div class="form-group">
+						<label for="favorito" class="col-md-3 control-label">Favorito:</label>
+						<div class="col-md-9">
+							<select data-ng-model="filtroGeral.favorito" id="favorito"
+								class="form-control">
+								<option value="">Todos</option>
+								<option data-ng-value="true">Sim</option>
+								<option data-ng-value="false">Não</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group last">
+
+						<div class="col-md-12">
+
+
+							<button class="btn btn-primary" id="botaoFiltro"
+								data-dismiss="modal" data-ng-tabindex='8'
+								data-ng-click="filtrar()">
+								<span class="glyphicon glyphicon-search"></span> Filtrar
+							</button>
+
+
+							<button class="btn btn-danger" data-ng-click="fecharFiltro()"
+								data-dismiss="modal">
+								<span class="glyphicon glyphicon-remove"></span> Cancelar
+							</button>
+
+
+						</div>
+
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,61 @@
+<div class="row row-center">
+	<div class="col-center col-md-10">
+		<div class="panel-default panel">
+
+			<div class="panel-heading">
+				<h2 class="panel-title">Cadastro de Ponto</h2>
+			</div>
+
+			<div class="panel-body">
+				<form name="formPonto" class="form form-horizontal"
+					role="form">
+					
+					<div class="form-group form-compact inline-group">
+						
+						<!-- Data -->
+						<label for="txtdata" class="col-sm-1 control-label">Data: </label> 		
+						<div class="col-xs-2">
+							<span style="width: 100%;" class="label label-default col-sm-2 form-control"> {{ponto.data | date: "dd/MM/yyyy" : "UTC" }}</span>
+						</div>
+						
+						<!-- Horario-->
+						<label for="txthorario" class="col-sm-1 control-label">Horário:</label> 		
+						<div class="col-xs-2">
+							<span style="width: 100%;" class="label label-default col-sm-2 form-control"> {{ponto.dataAtual | date: "HH:mm" : "UTC" }}</span>
+						</div>
+						
+						<!-- Periodo-->
+						<label for="periodo" class="col-xs-1 control-label label-thin">Período:</label> 
+						<div class="col-xs-5">
+							<select name="periodo" data-ng-model="periodo.dia" id="periodo"
+								    data-ng-options="key as val for (key, val) in periodoList" class="form-control">
+								<option disabled="disabled" value="">Opções</option>
+							</select>
+						</div>
+						
+					</div>
+						
+					<div class="form-group last">
+
+						<div class="col-md-12 text-center">
+
+							<button class="btn btn-success" data-ng-click="salvar()"
+								data-ng-hide="$acao.isAcaoVisualizar()" tabindex='2'
+								data-validation-submit="formPonto"> <span
+								class="glyphicon glyphicon-ok"></span> Salvar</button>
+								
+								<a class="btn btn-danger" data-ng-click="cancelar()"> <span
+								class="glyphicon glyphicon-remove"></span> Cancelar</a>
+
+						</div>
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+

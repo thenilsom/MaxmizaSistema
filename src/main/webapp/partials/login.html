@@ -1,0 +1,61 @@
+<div class="row-mg-center row login">
+
+	<div class="col-lg-12">
+
+		<div class="row row-center">
+
+			<div class="modal show" role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-login">
+					<div class="modal-content col-md-8 col-lg-10 col-center">
+
+						<div class="modal-header">
+							<img class="img-login img-responsive center-block"
+								src="resources/img/autocom.png" alt="Logotipo Autocom">
+						</div>
+
+						<div class="panel-body">
+
+							<form name="formLogin" class="form col-md-12 center-block"
+								role="form">
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-user"></span>
+										</span> <input id="inputLogin" type="text" class="form-control"
+											placeholder="Usuario" name="usuario.login"
+											data-ng-tabindex="1" data-ng-model="usuario.login"
+											data-validator="required" data-focus
+											data-valid-method="submit" maxlength="20">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-lock"></span>
+										</span> <input id="inputSenha" type="password" class="form-control"
+											placeholder="Senha" name="usuario.senha" data-ng-tabindex="2"
+											data-ng-model="usuario.senha" data-validator="required"
+											data-valid-method="submit" maxlength="20">
+									</div>
+								</div>
+								<div class="form-group last">
+									<div class="form-group">
+										<button class="btn btn-primary btn-block"
+											data-ng-click="login()" tabindex="3"
+											data-validation-submit="formLogin">Entrar</button>
+									</div>
+								</div>
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
