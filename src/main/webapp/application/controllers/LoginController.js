@@ -31,7 +31,7 @@ angular.module('app').controller('LoginController', ['$scope', '$http', '$confir
 		$http.post('usuario/login', $scope.usuario).success(function(data, status, headers, config) {
 			credential.init(data.nome, data.token, data.acessRoles);
 			
-			$location.path('/atendimento');
+			$location.path('/principal');
 		}).error(function(data, status, headers, config) {
 			$message.addMsgDanger(data);
 		});

@@ -13,6 +13,7 @@
 <link rel="stylesheet"
 	href="resources/css/bootstrap/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="resources/css/style.css">
+<link rel="stylesheet" href="resources/css/tabela-responsiva.css">
 <link rel="shortcut icon" type="image/png" href="resources/img/favicon.png"/>
 
 <!-- nTagsInput CSS -->
@@ -30,64 +31,50 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav nav-pills navbar-nav">
 						<li>
-							<a data-toggle="pill" data-target="#atendimento" href="#/atendimento"><span class="glyphicon glyphicon-check"></span> Atendimentos
-								<span class="badge">{{badgeAtendimento}}</span>
+							<a data-toggle="pill" data-target="#incendio" href="#/incendio"><span class="glyphicon glyphicon-fire"></span> Incendio
 							</a>
 						</li>
-						<li data-ng-if="$security.hasRoles(['ADMIN', 'SECRETARIA'])">
-							<a data-toggle="pill" data-target="#assunto" href="#/assunto"><span class="glyphicon glyphicon-tags"></span> Assuntos</a>
-						</li>
-						<li data-ng-if="$security.hasRoles(['ADMIN', 'SECRETARIA'])">
-							<a data-toggle="pill" data-target="#usuario" href="#/usuario"><span class="glyphicon glyphicon-user"></span> Usuários</a>
-						</li>
-						<li data-ng-if="$security.hasRoles(['ADMIN', 'SECRETARIA'])">
-							<a data-toggle="pill" data-target="#cliente" href="#/cliente"><span class="glyphicon glyphicon-list"></span> Clientes</a>
-						</li>
-						<li data-ng-if="$security.hasRoles(['ADMIN'])">
-							<a data-toggle="pill" data-target="#auditoria" href="#/auditoria"><span class="glyphicon glyphicon-search"></span> Auditoria</a>
-						</li>
-						<li data-ng-if="$security.hasRoles(['ADMIN'])">
-							<a data-toggle="pill" data-target="#relatorioGeral" href="#/relatorioGeral"><span class="glyphicon glyphicon-tasks"></span> Relatório</a>
-						</li>
 					</ul>
-					<div class="navbar-form navbar-right usuario"
-						data-ng-controller="LoginController">
-						<ul class="nav navbar-nav navbar-right">
-						
-							<li>
-								<a data-target="#recado" title="Mensagens" href="#/recado">
-								<span class="badge">{{badgeRecado}}</span>	
-								<span class="glyphicon glyphicon-envelope"></span>	
-								</a>
-								
-							</li>
-							
-							<li>
+					
+					<ul class="nav nav-pills navbar-nav navbar-right usuario">
+						<li>
 								<a data-target="#usuarioPerfil" href="#/usuarioPerfil">
 								<span class="glyphicon glyphicon-user"></span> {{ $security.currentUserName() }}</a>
 							</li>
-									
-							<li >
-								<a data-target="#ponto" title="Registro de Ponto" href="#/ponto">
-								<span class="glyphicon glyphicon-time"></span>	
-								</a>
+							
+							<li data-ng-controller="LoginController">
+								<a href=""  data-ng-click="logout();"><span class="glyphicon glyphicon-off"></span> Sair</a>
 							</li>
-												
-							<li >
-								<a href="" data-ng-click="logout();"><span class="glyphicon glyphicon-off"></span> Sair</a>
-							</li>
-						</ul>
-					</div>
+					</ul>
+					
+					
 				</div>
 		</nav>
 	</header>
 
-	<div class ="main">
-		<div class="container-fluid" data-ng-view></div>
+	<div class="main">
+		<div class="container-fluid col-md-10 col-sm-12 col-xs-12"
+			style="margin: 0 auto; float: none;">
+			<div class="row-fluid">
+				<div class="panel panel-default">
+
+					<div class="panel-heading">
+						<h2 class="panel-title">{{tituloPainel}}</h2>
+					</div>
+
+					<div class="panel-body fundo-panel">
+
+						<!-- as paginas serão carregadas aqui! -->
+						<div data-ng-view></div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
 	</div>
-	
-	<!-- Recarrega a Pagina Com Alt + r -->
-	<a onclick="location.reload()" accesskey="r"></a>
+
 
 	<!-- DEPENDÊNCIAS JAVA SCRIPT -->
 	<script type="text/javascript"
@@ -131,30 +118,9 @@
 	<script type="text/javascript" src="application/app.js"></script>
 		
 	<!-- CONTROLLERS -->
-	<script type="text/javascript"
-		src="application/controllers/UsuarioController.js"></script>
-	<script type="text/javascript"
-		src="application/controllers/UsuarioPerfilController.js"></script>
-	<script type="text/javascript"
-		src="application/controllers/LoginController.js"></script>
-	<script type="text/javascript"
-		src="application/controllers/AssuntoController.js"></script>
-	<script type="text/javascript"
-		src="application/controllers/ClienteController.js"></script>
-	<script type="text/javascript"
-		src="application/controllers/RecadoController.js"></script>
-	<script type="text/javascript"
-		src="application/controllers/PerfilController.js"></script>	
-	<script type="text/javascript"
-		src="application/controllers/AuditoriaController.js"></script>	
-	<script type="text/javascript"
-		src="application/controllers/CategoriaController.js"></script>
-	<script type="text/javascript"
-		src="application/controllers/PontoController.js"></script>
-	<script type="text/javascript"
-		src="application/controllers/AtendimentoController.js"></script>
-	<script type="text/javascript"
-		src="application/controllers/RelatorioGeralController.js"></script>	
+	<script type="text/javascript"src="application/controllers/UsuarioController.js"></script>
+	<script type="text/javascript"src="application/controllers/LoginController.js"></script>
+	<script type="text/javascript"src="application/controllers/IncendioController.js"></script>
 </body>
 
 </html>

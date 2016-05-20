@@ -19,46 +19,31 @@ var app = angular.module('app',['ngRoute', 'message', 'security', 'validation', 
 app.config(['$routeProvider', '$securityConfigProvider', '$validationProvider', function($routeProvider, $securityConfigProvider, $validationProvider){	
 	
   /** Security Config */
-  $securityConfigProvider.setCredentialNameStored('saaCredentialStored');
+  $securityConfigProvider.setCredentialNameStored('maxmizaCredentialStored');
   $securityConfigProvider.setNotAuthenticatedUrl('/login');
-  $securityConfigProvider.setNotAuthorizedUrl('/atendimento');
+  $securityConfigProvider.setNotAuthorizedUrl('/principal');
    
   /** Regra de navegação associada a aplicação. */
  
-  $routeProvider.when($securityConfigProvider.addInterceptUrl('/'), {
-  }).when($securityConfigProvider.addInterceptUrl('/usuario', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
+  $routeProvider.when($securityConfigProvider.addInterceptUrl('/principal'), {
+  }) .when($securityConfigProvider.addInterceptUrl('/principal', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
+	  templateUrl: 'partials/principal.html'
+ }).when($securityConfigProvider.addInterceptUrl('/incendio', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
+     templateUrl: 'partials/incendio.html',
+     controller: 'IncendioController'
+}).when($securityConfigProvider.addInterceptUrl('/usuario', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
        templateUrl: 'partials/usuario.html',
        controller: 'UsuarioController'
   }).when($securityConfigProvider.addInterceptUrl('/usuarioPerfil'), {
       templateUrl: 'partials/usuarioPerfil.html',
       controller: 'UsuarioPerfilController'
+  }).when($securityConfigProvider.addInterceptUrl('/login'), {
+	  templateUrl: 'partials/login.html',
+	  controller: 'LoginController'
  }).when($securityConfigProvider.addInterceptUrl('/cliente', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
       templateUrl: 'partials/cliente.html',
       controller: 'ClienteController'
-  }).when($securityConfigProvider.addInterceptUrl('/login'), {
-      templateUrl: 'partials/login.html',
-      controller: 'LoginController'
-  }).when($securityConfigProvider.addInterceptUrl('/assunto', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
-      templateUrl: 'partials/assunto.html',
-      controller: 'AssuntoController'
-  }).when($securityConfigProvider.addInterceptUrl('/recado'), {
-      templateUrl: 'partials/recado.html',
-      controller: 'RecadoController'
-  }).when($securityConfigProvider.addInterceptUrl('/auditoria', { accessRoles: ['ADMIN']}), {
-      templateUrl: 'partials/auditoria.html',
-      controller: 'AuditoriaController'
-  }).when($securityConfigProvider.addInterceptUrl('/atendimento' ), {
-      templateUrl: 'partials/atendimento.html',
-      controller: 'AtendimentoController'
-  }).when($securityConfigProvider.addInterceptUrl('/relatorioGeral' ), {
-      templateUrl: 'partials/relatorioGeral.html',
-      controller: 'RelatorioGeralController'
-  }).when($securityConfigProvider.addInterceptUrl('/ponto' ), {
-      templateUrl: 'partials/ponto.html',
-      controller: 'PontoController'
-  }).when($securityConfigProvider.addInterceptUrl('/' ), {
-	  redirectTo:'/atendimento'
-  }).otherwise({redirectTo:'/atendimento'});
+  }).otherwise({redirectTo:'/principal'});
   
   /** Regras de Validações de Campos */
   $validationProvider.showSuccessMessage = false;

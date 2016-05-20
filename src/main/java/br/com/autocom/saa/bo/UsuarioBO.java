@@ -8,10 +8,7 @@ import javax.inject.Named;
 import javax.transaction.Transactional;
 
 import br.com.autocom.saa.config.MessageCode;
-import br.com.autocom.saa.controller.AuditoriaController;
 import br.com.autocom.saa.dom.Usuario;
-import br.com.autocom.saa.dom.enums.Acao;
-import br.com.autocom.saa.dom.enums.Tabela;
 import br.com.autocom.saa.exception.NegocioException;
 import br.com.autocom.saa.presistence.UsuarioDAO;
 import br.com.autocom.saa.to.UsuarioTO;
@@ -31,9 +28,7 @@ public class UsuarioBO {
 	@Inject
 	private UsuarioDAO usuarioDAO;
 	
-	@Inject
-	private AuditoriaController auditoriaController;
-	
+		
 /**
 	 * Salva o {@link Usuario} na base de dados.
 	 * 
@@ -44,7 +39,7 @@ public class UsuarioBO {
 	 */
 	public Usuario salvar(Usuario usuario) throws NegocioException {
 		
-		Acao acao = Acao.ALTERAR;
+	
 		
 		try {
 				validarDadosObrigatorios(usuario);
@@ -58,17 +53,13 @@ public class UsuarioBO {
 						}
 					}else{
 						usuario.setSenha(Util.getValorCriptografadoMD5(usuario.getSenha()));
-						acao = Acao.INCLUIR;
 					}
 				}else{
 					throw new NegocioException(MessageCode.MSG_010);
 				}
 				
 				Usuario usuarioSalvo = usuarioDAO.persistir(usuario);
-				
-				//Auditoria 
-				auditoriaController.salvar(acao , usuarioSalvo.getId() , Tabela.USUARIO);
-				
+								
 				return usuarioSalvo;
 			
 		}catch (DAOException e) {
@@ -112,8 +103,6 @@ public class UsuarioBO {
 			
 			usuarioDAO.excluir(usuario);
 			
-			//Auditoria 
-			auditoriaController.salvar(Acao.DELETAR , usuario.getId() , Tabela.USUARIO);
 			
 		} catch (DAOException e) {
 			throw new NegocioException(e);
