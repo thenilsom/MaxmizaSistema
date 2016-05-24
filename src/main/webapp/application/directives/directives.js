@@ -62,7 +62,7 @@ directives
 											+ '<div class="modal-backdrop  in" style="min-height: 100%;"></div>'
 											+ '<div class="modal-dialog"> <div class="modal-content">'
 											+ '<div class="modal-header" style="text-align: center"><h5 class="modal-title">Aguarde</h5></div>'
-											+ '<div class="modal-body" ><div class="row row-mg-1 row-center" ><img src="resources/img/ajax-loader.gif"></div>'
+											+ '<div class="modal-body" ><div class="row row-mg-1 texto-centro" ><img src="resources/img/ajax-loader.gif"></div>'
 											+ '</div></div></div></div>');
 
 					$('body').append($templateCache.get('modalLoader.html'));

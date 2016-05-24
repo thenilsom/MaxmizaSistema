@@ -2,6 +2,7 @@
 .wrapper-responsivo {
   margin: 0 auto;
   padding: 40px;
+  padding-bottom: 0px;
   max-width: 1430px;
 }
 

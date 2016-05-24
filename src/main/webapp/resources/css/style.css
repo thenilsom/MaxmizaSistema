@@ -9,6 +9,11 @@
 	background-color: #1C60AB;
 }
 
+/*tamanho da fonte para input-sm*/
+.input-sm, .form-group-sm .form-control{
+	font-size: 11pt ! important
+}
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial;
   font-size: 13px;
@@ -31,6 +36,14 @@ header {
 
 .espaco-grid{
 	margin-top: 1em;
+}
+
+.espaco-grid-bottom-1{
+	margin-bottom: 1em;
+}
+
+.espaco-grid-bottom-2{
+	margin-bottom: 2em;
 }
 
  .big-checkbox {
@@ -99,6 +112,10 @@ padding: 15 10;
 .row-center {
 	margin: 0 auto;
     width: 90%;
+}
+
+.texto-centro{
+	text-align: center;
 }
 
 .col-center {

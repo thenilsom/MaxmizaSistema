@@ -25,7 +25,7 @@ app.config(['$routeProvider', '$securityConfigProvider', '$validationProvider', 
    
   /** Regra de navegação associada a aplicação. */
  
-  $routeProvider.when($securityConfigProvider.addInterceptUrl('/principal'), {
+  $routeProvider.when($securityConfigProvider.addInterceptUrl('/'), {
   }) .when($securityConfigProvider.addInterceptUrl('/principal', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
 	  templateUrl: 'partials/principal.html'
  }).when($securityConfigProvider.addInterceptUrl('/incendio', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
