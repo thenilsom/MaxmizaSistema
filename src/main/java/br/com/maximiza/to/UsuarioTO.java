@@ -1,4 +1,4 @@
-package br.com.autocom.saa.to;
+package br.com.maximiza.to;
 
 import java.util.List;
 

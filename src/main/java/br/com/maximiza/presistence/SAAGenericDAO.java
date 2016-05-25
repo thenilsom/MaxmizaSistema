@@ -1,4 +1,4 @@
-package br.com.autocom.saa.presistence;
+package br.com.maximiza.presistence;
 
 import java.io.Serializable;
 

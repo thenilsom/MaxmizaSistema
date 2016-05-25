@@ -1,4 +1,4 @@
-package br.com.autocom.saa.util;
+package br.com.maximiza.util;
 
 import java.io.IOException;
 import java.math.BigInteger;

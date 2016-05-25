@@ -1,4 +1,4 @@
-package br.com.autocom.saa.dom.enums;
+package br.com.maximiza.dom.enums;
 
 /**
  * Enum com as possíveis representações de Perfis de acesso a aplicação.

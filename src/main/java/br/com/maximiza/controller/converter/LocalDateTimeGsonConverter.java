@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.autocom.saa.controller.converter;
+package br.com.maximiza.controller.converter;
 
 import java.lang.reflect.Type;
 import java.time.LocalDate;

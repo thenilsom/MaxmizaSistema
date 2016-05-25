@@ -1,7 +1,7 @@
-package br.com.autocom.saa.exception;
+package br.com.maximiza.exception;
 
-import br.com.autocom.saa.util.Message;
-import br.com.autocom.saa.util.ResourceMessageUtil;
+import br.com.maximiza.util.Message;
+import br.com.maximiza.util.ResourceMessageUtil;
 
 /**
  * Exceção a ser lançada na ocorrência de falhas e validações de negócio.

@@ -1,4 +1,4 @@
-package br.com.autocom.saa.controller.filter;
+package br.com.maximiza.controller.filter;
 
 import java.io.IOException;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package br.com.autocom.saa.util;
+package br.com.maximiza.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

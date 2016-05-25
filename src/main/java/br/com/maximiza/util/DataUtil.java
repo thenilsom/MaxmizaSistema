@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.autocom.saa.util;
+package br.com.maximiza.util;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;

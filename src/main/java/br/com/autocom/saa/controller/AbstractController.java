@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
-import br.com.autocom.saa.config.MessageCode;
-import br.com.autocom.saa.exception.NegocioException;
-import br.com.autocom.saa.util.ResourceMessageUtil;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
+import br.com.maximiza.config.MessageCode;
+import br.com.maximiza.exception.NegocioException;
+import br.com.maximiza.util.ResourceMessageUtil;
 import br.com.sw3.security.Credential;
 
 /**

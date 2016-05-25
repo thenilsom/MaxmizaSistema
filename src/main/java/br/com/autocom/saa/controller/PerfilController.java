@@ -3,11 +3,11 @@ package br.com.autocom.saa.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import br.com.autocom.saa.dom.enums.Perfil;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.view.Results;
+import br.com.maximiza.dom.enums.Perfil;
 import br.com.sw3.security.annotation.Secured;
 
 /**

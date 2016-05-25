@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import br.com.autocom.saa.dom.enums.Perfil;
+import br.com.maximiza.dom.enums.Perfil;
 import br.com.sw3.persistence.entity.Entidade;
 
 /**

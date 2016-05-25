@@ -1,4 +1,4 @@
-package br.com.autocom.saa.dom.enums;
+package br.com.maximiza.dom.enums;
 
 public enum PeriodoPonto {
 	

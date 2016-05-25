@@ -1,4 +1,4 @@
-package br.com.autocom.saa.bo;
+package br.com.maximiza.bo;
 
 import java.util.List;
 
@@ -7,12 +7,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 
-import br.com.autocom.saa.config.MessageCode;
 import br.com.autocom.saa.dom.Usuario;
-import br.com.autocom.saa.exception.NegocioException;
-import br.com.autocom.saa.presistence.UsuarioDAO;
-import br.com.autocom.saa.to.UsuarioTO;
-import br.com.autocom.saa.util.Util;
+import br.com.maximiza.config.MessageCode;
+import br.com.maximiza.exception.NegocioException;
+import br.com.maximiza.presistence.UsuarioDAO;
+import br.com.maximiza.to.UsuarioTO;
+import br.com.maximiza.util.Util;
 import br.com.sw3.persistence.exception.DAOException;
 
 /**
