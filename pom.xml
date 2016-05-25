@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.com.autocom</groupId>
+	<groupId>br.com.maximiza</groupId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -9,7 +9,7 @@
 		<weld.version>2.3.1.Final</weld.version>
 	</properties>
 
-	<!-- Repositorios SVN Autocom -->
+	<!-- Repositorios SVN -->
 	<repositories>
 		<repository>
 			<name>Repositorio Autocom Releases</name>
@@ -138,16 +138,15 @@
 	</dependencies>
 
 	<build>
-		<finalName>saa</finalName>
+		<finalName>maximiza</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<version>1.1</version>
 				<configuration>
-					<url>http://www.autocomsistemas.com.br:8080/manager/text</url>
 					<server>mytomcat</server>
-					<path>/saa</path>
+					<path>/maximiza</path>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -165,5 +164,5 @@
 	</build>
 
 
-	<artifactId>saa</artifactId>
+	<artifactId>maximiza</artifactId>
 </project>

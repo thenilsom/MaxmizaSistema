@@ -13,12 +13,12 @@ import br.com.sw3.persistence.AbstractEntityManagerProducer;
  * Classe que determina o ponto de injeção unico para a criação da instância do {@link EntityManager}, 
  * definido pela anotação @Produces do CDI.
  * 
- * @author Paulo Leonardo de O. Miranda
+ * @author Denilson Godinho
  */
 @ApplicationScoped
 public class SAAEntityManagerProducer extends AbstractEntityManagerProducer {
 
-	private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("saa");
+	private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("maximiza");
 
 	/**
 	 * @see br.com.sw3.persistence.AbstractEntityManagerProducer#createEntityManager()

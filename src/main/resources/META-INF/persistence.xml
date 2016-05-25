@@ -3,9 +3,8 @@
 	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	
-	<persistence-unit name="saa" transaction-type="RESOURCE_LOCAL" >
-		<non-jta-data-source>java:comp/env/jdbc/saa</non-jta-data-source>
-		<class>br.com.autocom.saa.dom.Usuario</class>
+	<persistence-unit name="maximiza" transaction-type="RESOURCE_LOCAL" >
+		<non-jta-data-source>java:comp/env/jdbc/maximiza</non-jta-data-source>
 
 		<properties>
 			<property name="hibernate.max_fetch_depth" value="2" />
@@ -14,7 +13,7 @@
 			<property name="hibernate.generate_statistics" value="false" />
 			<property name="hibernate.jdbc.batch_size" value="50" />
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
-			<property name="hibernate.show_sql" value="true" /> 
+			<property name="hibernate.show_sql" value="false" /> 
 		</properties>
 
 	</persistence-unit>
