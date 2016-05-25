@@ -1,0 +1,214 @@
+<style>
+fieldset.scheduler-border {
+    border: 1px solid #ccc !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    border-radius: 9px;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+    border: solid 1px #DDD !important;
+    padding: 0 10px 10px 10px;
+    border-bottom: none;
+}
+
+legend.scheduler-border {
+   width: auto !important;
+    font-size: 14px;
+    background-color: #4A77CA;
+    color: white;
+    font-weight: bold;
+    border-radius: 9px;
+}
+</style>
+
+<div class="panel panel-default">
+
+	<div class="panel-heading">
+		<h2 class="panel-title">Incêndio</h2>
+	</div>
+
+	<div class="panel-body fundo-panel">
+
+		<form class="form form-horizontal " role="form">
+
+	<div class="row-fluid">
+
+<!-- Row Endereco -->
+	<div class="col-md-8">
+	<fieldset class="scheduler-border">
+					<legend class="scheduler-border">Endereço</legend>
+					
+					<!-- Cep -->
+					<div class="form-group">
+						<label class="col-md-1 col-sm-2 control-label" for="cep">Cep</label>
+						<div class="col-md-3 col-sm-3">
+							<input type="text" class="form-control input-sm" id="cep"/> 
+						</div>
+					</div>
+					
+					
+					<!-- Endereço -->
+					<div class="form-group">
+							<label class="col-md-1 col-sm-2 control-label" for="endereco">Endereço</label>
+						<div class="col-md-11 col-sm-10">		
+							<input type="text" class="form-control input-sm" id="endereco"/> 
+						</div>
+					</div>
+					
+					<!-- Numero -->
+					<div class="form-group">
+							<label class="col-md-1 col-sm-2 control-label" for="numero">Numero</label>
+					<div class="col-md-3 col-sm-2">	
+							<input type="text" class="form-control input-sm" id="numero"/> 
+					</div>	
+									
+					<!-- Quadra -->
+							<label class="col-md-1 col-sm-2 control-label" for="quadra">Quadra</label>
+						<div class="col-md-3 col-sm-2">
+							<input type="text" class="form-control input-sm" id="quadra"/> 
+					</div>
+									
+					<!-- Lote -->
+					<label class="col-md-1 col-sm-2 control-label" for="lote">Lote</label>
+					<div class="col-md-3 col-sm-2">	
+							<input type="text" class="form-control input-sm" id="lote"/> 
+					</div>
+						
+					</div>
+					
+					<!-- Complemento -->
+					<div class="form-group">
+							<label class="col-md-1 col-sm-2 control-label" for="complemento">Compleme.</label>
+					<div class="col-md-10 col-sm-10">		
+							<input type="text" class="form-control input-sm" id="complemento"/> 
+					</div>	
+					</div>
+					
+					<!-- Bairro -->
+					<div class="form-group">
+							<label class="col-md-1 col-sm-2 control-label" for="bairro">Bairro</label>
+					<div class="col-md-11 col-sm-10">	
+							<input type="text" class="form-control input-sm" id="bairro"/> 
+					</div>
+					</div>
+					
+					<!-- Cidade -->
+					<div class="form-group">
+							<label class="col-md-1 col-sm-2 control-label" for="cidade">Cidade</label>
+					<div class="col-md-8 col-sm-6">	
+							<input type="text" class="form-control input-sm" id="cidade"/> 
+					</div>	
+					
+					<!-- Uf -->
+							<label class="col-md-1 col-sm-2 control-label" for="uf">Uf</label>
+					<div class="col-md-2 col-sm-2">		
+							<input type="text" class="form-control input-sm" id="uf"/> 
+					</div>
+					</div>
+					
+					<!-- Controle -->
+					<div class="form-group">
+							<label class="col-md-1 col-sm-2 control-label" for="controle">Controle</label>
+					<div class="col-md-3 col-sm-3">	
+							<input type="text" class="form-control input-sm" id="controle"/> 
+					</div>				
+					</div>
+							
+				</fieldset>
+	</div>
+	
+	<!-- Row Datas -->
+	<div class="col-md-4">
+	<fieldset class="scheduler-border">
+					<legend class="scheduler-border">Datas</legend>
+					
+					<!-- Início de Contrato -->
+					<div class="col-md-7 col-sm-7">				
+					<label class="control-label" for="inicioContrato">Início de Contrato</label>
+					<input data-datepicker type="text" id="inicioContrato" data-ng-maskedinput='99/99/9999' 
+				       class="form-control input-sm" data-ng-model="teste.teste"> 
+				   </div>
+				   
+				   <!-- Parc. 1- Pagto -->
+				   <div class="col-md-6 col-sm-6">				
+					<label class="control-label" for="parc1pagto">Parc. 1- Pagto</label>
+					<input data-datepicker type="text" id="parc1pagto" data-ng-maskedinput='99/99/9999' 
+				       class="form-control input-sm" data-ng-model="teste.teste"> 
+				   </div>
+				   
+				   <!-- Repassada -->
+				   <div class="col-md-6 col-sm-6">				
+					<label class="control-label" for="repassada">Repassada</label>
+					<input data-datepicker type="text" id="repassada" data-ng-maskedinput='99/99/9999' 
+				       class="form-control input-sm" data-ng-model="teste.teste"> 
+				   </div>
+				 
+				 <!-- Apólice -->
+				   <div class="col-md-6 col-sm-6">				
+					<label class="control-label" for="apolice">Apólice</label>
+					<input data-datepicker type="text" id="apolice" data-ng-maskedinput='99/99/9999' 
+				       class="form-control input-sm" data-ng-model="teste.teste"> 
+				   </div>
+				       
+	</fieldset>
+	</div>
+	
+	<!-- Row Dados das Partes -->
+	<div class="col-md-8">
+	<fieldset class="scheduler-border">
+					<legend class="scheduler-border">Dados das Partes</legend>
+					
+					<!-- Propriétario -->
+					<div class="form-group">
+							<label class="col-md-1 col-sm-2 control-label" for="proprietario">Propriétario</label>
+					<div class="col-md-11 col-sm-10">	
+							<input type="text" class="form-control input-sm" id="proprietario"/> 
+					</div>
+					</div>
+					
+					<!-- Inquilino -->
+					<div class="form-group">
+							<label class="col-md-1 col-sm-2 control-label" for="inquilino">Inquilino</label>
+					<div class="col-md-11 col-sm-10">
+							<input type="text" class="form-control input-sm" id="inquilino"/> 
+					</div>
+					</div>
+					
+					<!-- Atendente -->
+					<div class="form-group">
+							<label class="col-md-1 col-sm-2 control-label" for="atendente">Atendente</label>
+					<div class="col-md-11 col-sm-10">	
+							<input type="text" class="form-control input-sm" id="atendente"/> 
+					</div>
+					</div>
+	</fieldset>
+	</div>
+
+</div>
+
+		
+
+			<!-- Botoes -->
+			<div class="row-fluid">
+				<div class="form-group">
+					<div class="col-md-12 col-sm-12 col-xs-12 text-right">
+						<button type="button" class="btn btn-success">
+							Gravar <span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button type="button" class="btn btn-danger">
+							Sair <span class="glyphicon glyphicon-off"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+
+
+		</form>
+		
+		</div>
+	</div>
+		
