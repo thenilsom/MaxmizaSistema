@@ -11,7 +11,7 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import br.com.autocom.saa.dom.Usuario;
+import br.com.maximiza.dom.Usuario;
 import br.com.sw3.persistence.exception.DAOException;
 
 /**

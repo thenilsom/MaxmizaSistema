@@ -1,4 +1,4 @@
-package br.com.autocom.saa.controller;
+package br.com.maximiza.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -6,7 +6,6 @@ import java.util.UUID;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import br.com.autocom.saa.dom.Usuario;
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
@@ -15,6 +14,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.view.Results;
 import br.com.maximiza.bo.UsuarioBO;
 import br.com.maximiza.config.MessageCode;
+import br.com.maximiza.dom.Usuario;
 import br.com.maximiza.exception.NegocioException;
 import br.com.maximiza.to.UsuarioTO;
 import br.com.maximiza.util.ResourceMessageUtil;

@@ -7,8 +7,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 
-import br.com.autocom.saa.dom.Usuario;
 import br.com.maximiza.config.MessageCode;
+import br.com.maximiza.dom.Usuario;
 import br.com.maximiza.exception.NegocioException;
 import br.com.maximiza.presistence.UsuarioDAO;
 import br.com.maximiza.to.UsuarioTO;

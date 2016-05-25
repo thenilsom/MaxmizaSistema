@@ -1,4 +1,4 @@
-package br.com.autocom.saa.dom;
+package br.com.maximiza.dom;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

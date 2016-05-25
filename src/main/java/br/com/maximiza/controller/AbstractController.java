@@ -1,4 +1,4 @@
-package br.com.autocom.saa.controller;
+package br.com.maximiza.controller;
 
 import java.io.Serializable;
 
