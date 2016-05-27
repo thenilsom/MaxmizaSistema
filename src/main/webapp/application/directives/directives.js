@@ -425,40 +425,6 @@ directives.directive('heigth', function($timeout) {
 
 });
 
-/**
- * Implementação de 'directive', para criar um popover na descricao do problema no atendimento
- * parametros:
- * data-problema = descricao do problema
- * data-solucao = descricao da solucao
- * data-posicao = posicao que sera mostrado o popover
- */
-directives.directive('popover', function(){
- return{
-  restrinct: 'A',
-  template: '<span class="glyphicon glyphicon-eye-open"></span>',
-  link: function(scope, element, attrs){
-   element.addClass('btn btn-success btn-xs pop');
-   $(element).popover({
-    trigger: 'hover',
-    html: true,
-    content: 
-    '<h4 align="center"> <strong> Data </strong> </h4>'
-     +   '<p> <small>' + attrs.datainicio + ' - ' + attrs.datafim + '</p> </small>' +
-     
-     '<h4 align="center"> <strong> Problema </strong> </h4>'
-     +   '<p> <small>' + attrs.problema + '</p> </small>' +
-     
-       '<h4 align="center"> <strong> Solução </strong> </h4>'
-     +  '<p> <small>' + attrs.solucao + '</p> </small>' +
-    
-     '<h4 align="center"> <strong> Atendente </strong> </h4>'
-     +   '<p> <small>' + attrs.usuario + '</p> </small>' ,
-     
-    placement: attrs.posicao
-   });
-  }
- }
-});
 
 /**
  * Filtro Responsavel por Formatar CNPJ
