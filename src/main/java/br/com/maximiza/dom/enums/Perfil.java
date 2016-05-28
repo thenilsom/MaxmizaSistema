@@ -7,7 +7,7 @@ package br.com.maximiza.dom.enums;
  * 
  */
 public enum Perfil {
-	ADMIN("Administrador"), SECRETARIA("Secretária"), TECNICO("Técnico");
+	ADMIN("Administrador"), SECRETARIA("Secretaria"), TECNICO("Tecnico");
 
 	private final String descricao;
 
