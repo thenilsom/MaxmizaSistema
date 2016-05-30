@@ -2,37 +2,37 @@ app.factory('serviceUtils', ['$confirm','$filter', '$rootScope', function($confi
 	
 	var $modelConfirm = new $confirm();
 	var service = {};
+	
+	/**
+	 * Recebe um objeto e verifica se é nullo ou undefined
+	 */
+	service.isEmpty = function(obj){
+		return (obj === undefined || obj === null);
+	}
+	
+	/**
+	 * Recebe um objeto e verifica se é nullo, undefined ou string vazia ('').
+	 */
+	service.isNullOrEmpty = function(obj){
+		return service.isEmpty(obj) || obj === '';
+	}
 
 	/************ CEP WEB SERVICE ******/
 	 
 	 /**
 	   * Consulta o webservice viacep.com.br/ pelo cep informado
-	   * e preenche o endereço com as informações vindas.
+	   * e retorna a promessa.
 	   */
-	  service.consultarCep = function(obj){
-	   var url = "//viacep.com.br/ws/"+ obj.cep +"/json/?callback=?"
-	    
+	  service.consultarCep = function(cep){
+	   var formatCep = cep.replace('.', '').replace('-','');
+	   var url = "//viacep.com.br/ws/"+ formatCep +"/json/?callback=?"
+	   
 	   //se o cep for valido efetua a consulta no webservice
-	   if(/^[0-9]{8}$/.test(obj.cep)){
-	    
-	  $('.loader').show();
-	     $.getJSON(url, function(dados) {
-	      $('.loader').hide(); 
-	         if (!("erro" in dados)) { 
-	          obj.endereco = dados.logradouro;
-	          obj.setor = dados.bairro;
-	          obj.cidade =  dados.localidade;
-	          $rootScope.$digest();
-	         }
-	         else {
-	             //CEP pesquisado não foi encontrado.
-	             console.log("CEP não encontrado.");
-	         }
-	     });
-	       
-	         
+	   if(/^[0-9]{8}$/.test(formatCep)){
+		   return $.getJSON(url);
 	   }
-	  }
+     
+	 }
 	  
 	  /**
 	   * Verifica a String e Substitui acentos pelos Normais

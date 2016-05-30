@@ -20,6 +20,7 @@
 						<label class="col-md-2 col-sm-2 control-label" for="cep">Cep</label>
 						<div class="col-md-3 col-sm-3">
 							<input type="text" class="form-control input-sm" id="cep" data-focus
+							data-ng-model = "obj.cep" name="obj.cep" data-ng-blur = "buscarCep()"
 							data-ng-maskedinput='99.999-999' data-ng-tabindex="1" /> 
 						</div>
 					</div>
@@ -30,6 +31,7 @@
 							<label class="col-md-2 col-sm-2 control-label" for="endereco">Endereço</label>
 						<div class="col-md-10 col-sm-10">		
 							<input type="text" class="form-control input-sm" id="endereco"
+							data-ng-model = "obj.endereco" name="obj.endereco"
 							data-ng-tabindex="2"/> 
 						</div>
 					</div>
@@ -72,6 +74,7 @@
 							<label class="col-md-2 col-sm-2 control-label" for="bairro">Bairro</label>
 					<div class="col-md-10 col-sm-10">	
 							<input type="text" class="form-control input-sm" id="bairro"
+							data-ng-model = "obj.bairro" name="obj.bairro"
 							data-ng-tabindex="7"/> 
 					</div>
 					</div>
@@ -81,6 +84,7 @@
 							<label class="col-md-2 col-sm-2 control-label" for="cidade">Cidade</label>
 					<div class="col-md-6 col-sm-6">	
 							<input type="text" class="form-control input-sm" id="cidade"
+							data-ng-model = "obj.cidade" name="obj.cidade"
 							data-ng-tabindex="8"/> 
 					</div>	
 					
@@ -88,6 +92,7 @@
 							<label class="col-md-2 col-sm-2 control-label" for="uf">Uf</label>
 					<div class="col-md-2 col-sm-2">		
 							<input type="text" class="form-control input-sm" id="uf"
+							data-ng-model = "obj.uf" name="obj.uf"
 							data-ng-tabindex="9"/> 
 					</div>
 					</div>
