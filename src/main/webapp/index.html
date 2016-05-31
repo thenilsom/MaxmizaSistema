@@ -36,7 +36,8 @@
 						</li>
 					</ul>
 					
-					<ul class="nav nav-pills navbar-nav navbar-right usuario">
+					<div class="navbar-form navbar-right usuario">
+					<ul class="nav navbar-nav navbar-right">
 						<li>
 								<a data-target="#usuarioPerfil" href="#/usuarioPerfil">
 								<span class="glyphicon glyphicon-user"></span> {{ $security.currentUserName() }}</a>
@@ -46,7 +47,7 @@
 								<a href=""  data-ng-click="logout();"><span class="glyphicon glyphicon-off"></span> Sair</a>
 							</li>
 					</ul>
-					
+				</div>	
 					
 				</div>
 		</nav>
