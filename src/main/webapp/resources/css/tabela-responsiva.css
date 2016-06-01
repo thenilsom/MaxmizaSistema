@@ -57,3 +57,19 @@
     display: block;
   }
 }
+
+
+/*define uma altura maxima para o painel gerando scroll se ultrapassar.*/
+.fixed-panel {
+  max-height: 560px;
+  overflow-y: scroll;
+  margin-bottom: 40px;
+}
+
+/*tabela com scroll*/
+.table-overflow {
+  margin: 0 0 2px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
