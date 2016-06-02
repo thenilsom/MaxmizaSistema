@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.GeneralSecurityException;
 import java.security.MessageDigest;
+import java.util.Collection;
 
 /**
  * @author Paulo Leonardo de O. Miranda.
@@ -41,6 +42,23 @@ public final class Util {
 		}  	
     }
     
+    /**
+	 * Verifica se um objeto &eacute; vazio.
+	 * 
+	 * @param obj
+	 * @return <b>true</b> se o objeto for vazio(empty).
+	 */
+    public static boolean isEmpty(Object obj) {
+		if (obj == null)
+			return true;
+		if (obj instanceof Collection)
+			return ((Collection<?>) obj).size() == 0;
+
+		final String s = String.valueOf(obj).trim();
+
+		return s.length() == 0 || s.equalsIgnoreCase("null");
+	}
+       
     /**
 	 * Retorna o valor informado criptografado segundo o algoritimo {@link MessageDigest} informado.
 	 * 

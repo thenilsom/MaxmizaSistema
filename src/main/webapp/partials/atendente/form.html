@@ -1,0 +1,95 @@
+<div class="row-fluid col-md-10">
+
+<div class="panel panel-default">
+
+	<div class="panel-heading">
+		<h2 class="panel-title">Inclusão de Atendentes</h2>
+	</div>
+
+	<div class="panel-body fundo-panel">
+
+		<form class="form form-horizontal " role="form">
+
+	
+
+<!-- Row Endereco -->
+	<div class="col-md-10">
+						
+					<!-- Nome -->
+					<div class="form-group">
+						<label class="col-md-2 col-sm-2 control-label" for="nome">Nome</label>
+						<div class="col-md-10 col-sm-10">
+							<input type="text" class="form-control input-sm" id="nome" data-focus
+							data-ng-model="usuario.nome" name="usuario.nome"
+							data-ng-tabindex="1" /> 
+						</div>
+					</div>
+					
+					
+					<!-- Administrador -->
+					<div class="form-group">
+							<label class="col-md-2 col-sm-2 control-label" for="admin">Administrador</label>
+						<div class="col-md-1 col-sm-1">		
+							<input type="checkbox" class="big-checkbox" id="admin"
+							data-ng-model="usuario.adimistrador" name="usuario.adimistrador"
+							data-ng-tabindex="2"/> 
+						</div>
+					</div>
+					
+					<!-- Comissao -->
+					<div class="form-group">
+							<label class="col-md-2 col-sm-2 control-label" for="comissao">Comissao</label>
+					<div class="col-md-3 col-sm-3">	
+							<input type="text" class="form-control input-sm" id="comissao"
+							data-ng-model="usuario.comissao" name="usuario.comissao"
+							data-ng-tabindex="3"/> 
+					</div>	
+						
+					</div>
+					
+					<!-- Senha -->
+					<div class="form-group">
+							<label class="col-md-2 col-sm-2 control-label" for="senha">Senha</label>
+					<div class="col-md-6 col-sm-6">		
+							<input type="password" class="form-control input-sm" id="senha"
+							data-ng-model="usuario.senha" name="usuario.senha"
+							data-ng-tabindex="4"/> 
+					</div>	
+					</div>
+					
+					<!-- Confirmação -->
+					<div class="form-group">
+							<label class="col-md-2 col-sm-2 control-label" for="confirmSenha">Confirmação</label>
+					<div class="col-md-6 col-sm-6">		
+							<input type="password" class="form-control input-sm" id="confirmSenha"
+							data-ng-model="usuario.confirmacaoSenha" name="usuario.confirmacaoSenha"
+							data-ng-tabindex="5"/> 
+					</div>	
+					</div>
+							
+		</div>
+	
+		
+
+			<!-- Botoes -->
+			<div class="row-fluid">
+				<div class="form-group">
+					<div class="col-md-12 col-sm-12 col-xs-12 text-right">
+						<button type="button" class="btn btn-success" data-ng-click="salvar()">
+							Gravar <span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button type="button" class="btn btn-danger">
+							Sair <span class="glyphicon glyphicon-off"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+
+
+		</form>
+		
+		</div>
+	</div>
+	</div>
+		

@@ -1,14 +1,15 @@
 package br.com.maximiza.dom;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import br.com.maximiza.dom.enums.Perfil;
 import br.com.sw3.persistence.entity.Entidade;
@@ -40,11 +41,15 @@ public class Usuario implements Entidade<Long> {
 	@Column(name = "senha", length = 255)
 	private String senha;
 	
-	@Enumerated(EnumType.STRING)
-	private Perfil perfil;
+	@Column(name = "admin")
+	private boolean adimistrador;
 	
-	@Column(name = "ativo")
-	private boolean ativo;
+	@Column(name = "comissao")
+	private BigDecimal comissao;
+	
+		
+	@Transient
+	private String confirmacaoSenha;
 
 	
 	/**
@@ -104,32 +109,37 @@ public class Usuario implements Entidade<Long> {
 		this.senha = senha;
 	}
 
-	/**
-	 * @return the perfil
-	 */
-	public Perfil getPerfil() {
-		return perfil;
+	public boolean isAdimistrador() {
+		return adimistrador;
 	}
 
-	/**
-	 * @param perfil the perfil to set
-	 */
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
+	public void setAdimistrador(boolean adimistrador) {
+		this.adimistrador = adimistrador;
 	}
 
-	/**
-	 * @return the ativo
-	 */
-	public boolean isAtivo() {
-		return ativo;
+	public String getConfirmacaoSenha() {
+		return confirmacaoSenha;
 	}
 
-	/**
-	 * @param ativo the ativo to set
-	 */
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
+	public void setConfirmacaoSenha(String confirmacaoSenha) {
+		this.confirmacaoSenha = confirmacaoSenha;
 	}
+	
+	/**
+	 * Retorna o Perfil do Usuario
+	 * @return
+	 */
+	public Perfil getPerfilUsuario(){
+	 return isAdimistrador() ? Perfil.ADMIN : Perfil.SECRETARIA;
+	}
+
+	public BigDecimal getComissao() {
+		return comissao;
+	}
+
+	public void setComissao(BigDecimal comissao) {
+		this.comissao = comissao;
+	}
+	
 
 }

@@ -94,7 +94,7 @@ public class UsuarioDAO extends SAAGenericDAO<Usuario, Long> {
 		try{
 			StringBuilder jpql = new StringBuilder();
 			jpql.append(" SELECT usuario.id FROM Usuario usuario");
-			jpql.append(" WHERE usuario.login = ?1");
+			jpql.append(" WHERE usuario.nome = ?1");
 
 			Query  query = getEntityManager().createQuery(jpql.toString());
 			query.setParameter(1, login);

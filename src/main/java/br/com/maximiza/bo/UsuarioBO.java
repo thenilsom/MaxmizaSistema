@@ -39,11 +39,12 @@ public class UsuarioBO {
 	 */
 	public Usuario salvar(Usuario usuario) throws NegocioException {
 		
-	
-		
 		try {
 				validarDadosObrigatorios(usuario);
-				if(!validarLogin(usuario)){
+				validarLogin(usuario);
+				
+				usuario.setLogin(usuario.getNome());
+				
 					//Se for novo usuário criptografa senha
 					//Se for editar usuário e ele alterou a senha, criptografa senha novamente.
 					if(usuario.getId() != null){
@@ -54,10 +55,7 @@ public class UsuarioBO {
 					}else{
 						usuario.setSenha(Util.getValorCriptografadoMD5(usuario.getSenha()));
 					}
-				}else{
-					throw new NegocioException(MessageCode.MSG_010);
-				}
-				
+								
 				Usuario usuarioSalvo = usuarioDAO.persistir(usuario);
 								
 				return usuarioSalvo;
@@ -78,11 +76,9 @@ public class UsuarioBO {
 	public Usuario editar(Usuario usuario) throws NegocioException {
 		try {
 			validarDadosObrigatorios(usuario);
-			if(!validarLogin(usuario)){
-				return usuarioDAO.persistir(usuario);
-			}else{
-				throw new NegocioException(MessageCode.MSG_010);
-			}
+			validarLogin(usuario);
+			usuario.setLogin(usuario.getNome());
+			return usuarioDAO.persistir(usuario);
 			
 		} catch (DAOException e) {
 			throw new NegocioException(e);
@@ -108,9 +104,7 @@ public class UsuarioBO {
 			throw new NegocioException(e);
 		}
 		
-		
 	}
-	
 	
 		
 	/**
@@ -176,20 +170,6 @@ public class UsuarioBO {
 		}
 	}
 
-	/**
-	 * Retorna a lista com todos os Usuarios ativos na base de dados.
-	 * 
-	 * @return
-	 * @throws NegocioException
-	 */
-	public List<Usuario> listarAtivos() throws NegocioException {
-		try {
-			return usuarioDAO.listarAtivos();
-		} catch (DAOException e) {
-			throw new NegocioException(e);
-		}
-	}
-	
 	
 	/**
 	 * Verifica se os campos de preenchimento Obrigatório foram preenchidos.
@@ -199,8 +179,8 @@ public class UsuarioBO {
 	 */
 	private void validarDadosObrigatorios(final Usuario usuario) throws NegocioException {
 
-		if (Util.isBlank(usuario.getLogin()) || Util.isBlank(usuario.getNome()) 
-				|| Util.isBlank(usuario.getSenha()) || ( usuario.getPerfil() == null ) ) {
+		if (Util.isBlank(usuario.getNome()) 
+				|| Util.isBlank(usuario.getSenha()) || Util.isBlank(usuario.getConfirmacaoSenha()) ) {
 			throw new NegocioException(MessageCode.MSG_006);
 		}
 
@@ -227,10 +207,7 @@ public class UsuarioBO {
 				throw new NegocioException(MessageCode.MSG_002);
 			}
 			
-			if(!autenticado.isAtivo()){
-				throw new NegocioException(MessageCode.MSG_013);
-			}
-			
+						
 			return autenticado;
 		} catch (DAOException e) {
 			throw new NegocioException(e);
@@ -245,15 +222,21 @@ public class UsuarioBO {
 	 * @return
 	 * @throws NegocioException
 	 */
-	private boolean validarLogin(Usuario usuario) throws NegocioException {
+	private void validarLogin(Usuario usuario) throws NegocioException {
 		try {
-			Long auxId = usuarioDAO.getID(usuario.getLogin());
-			if(auxId != null){
+			
+			//valida confirmação da senha
+			if(!usuario.getSenha().equals(usuario.getConfirmacaoSenha())){
+				throw new NegocioException(MessageCode.MSG_015);
+			}
+			
+			//valida se login ja existe
+			Long auxId = usuarioDAO.getID(usuario.getNome());
+			if(!Util.isNull(auxId)){
 				if(auxId != usuario.getId()){
-					return true;
+					throw new NegocioException(MessageCode.MSG_010);
 				}
 			}
-			return false;
 		} catch (DAOException e) {
 			throw new NegocioException(e);
 		}

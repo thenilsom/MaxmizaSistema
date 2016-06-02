@@ -94,24 +94,7 @@ public class UsuarioController extends AbstractController {
 		}
 	}
 	
-	/**
-	 * Retorna a lista com todos os Usuarios ativos na base de dados.
-	 */
-	@Get
-	@Path("usuario/listarAtivos")
-	@Secured
-	public void listarAtivos() {
-		try {
-			List<Usuario> usuarios = usuarioBO.listarAtivos();
-			
-			result.use(Results.json()).withoutRoot().from(usuarios).serialize();
-		} catch (NegocioException e) {
-			adicionarMensagemErroNegocio(e);
-		} catch (Exception e) {
-			adicionarMensagemErroInesperado(e);
-		}
-	}
-	
+		
 	/**
 	 * Retorna o Usuario na sessão.
 	 */
@@ -142,7 +125,7 @@ public class UsuarioController extends AbstractController {
 			Usuario usuario = usuarioBO.getUsuario(usuarioTO);
 			
 			List<String> acessRoles = new ArrayList<String>();
-			acessRoles.add(usuario.getPerfil().toString());
+			acessRoles.add(usuario.getPerfilUsuario().toString());
 			
 			String token = UUID.randomUUID().toString();
 			

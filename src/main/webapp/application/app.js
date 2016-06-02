@@ -31,12 +31,9 @@ app.config(['$routeProvider', '$securityConfigProvider', '$validationProvider', 
  }).when($securityConfigProvider.addInterceptUrl('/incendio', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
      templateUrl: 'partials/incendio.html',
      controller: 'IncendioController'
-}).when($securityConfigProvider.addInterceptUrl('/usuario', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
-       templateUrl: 'partials/usuario.html',
-       controller: 'UsuarioController'
-  }).when($securityConfigProvider.addInterceptUrl('/usuarioPerfil'), {
-      templateUrl: 'partials/usuarioPerfil.html',
-      controller: 'UsuarioPerfilController'
+}).when($securityConfigProvider.addInterceptUrl('/atendente', { accessRoles: ['ADMIN', 'SECRETARIA']}), {
+       templateUrl: 'partials/atendente.html',
+       controller: 'AtendenteController'
   }).when($securityConfigProvider.addInterceptUrl('/login'), {
 	  templateUrl: 'partials/login.html',
 	  controller: 'LoginController'

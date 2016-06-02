@@ -1,4 +1,4 @@
-angular.module('app').controller('UsuarioController', ['$scope', '$http', '$confirm', '$acaoSistema', '$message', function($scope, $http,$confirm, $acaoSistema, $message) {	
+angular.module('app').controller('AtendenteController', ['$scope', '$http', '$confirm', '$acaoSistema', '$message', function($scope, $http,$confirm, $acaoSistema, $message) {	
 	
 	var $modelConfirm = new $confirm();
 	$scope.$acao = new $acaoSistema();
@@ -42,8 +42,7 @@ angular.module('app').controller('UsuarioController', ['$scope', '$http', '$conf
 	 */
 	$scope.incluir = function() {
 		$scope.usuario = {};
-		$scope.usuario.ativo = true;
-		$scope.usuario.perfil = 'TECNICO';
+		$scope.usuario.administrador = false;
 		$scope.$acao.acaoIncluir();
 	}
 	
@@ -106,6 +105,6 @@ angular.module('app').controller('UsuarioController', ['$scope', '$http', '$conf
 	}
 	
 	/* A lista será inicializada ao abrir o caso de uso. */
-	listar();
+	//listar();
 	
 }]);
