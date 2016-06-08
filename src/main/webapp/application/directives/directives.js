@@ -425,6 +425,23 @@ directives.directive('heigth', function($timeout) {
 
 });
 
+/**
+ * Diretiva para mascara monetaria em input text.
+ */
+directives.directive('maskMoney', function() {
+	return {
+		restrinct : 'A',
+		link : function(scope, element) {
+			element.maskMoney({
+				showSymbol:true,
+				symbol:"R$",
+				decimal:",",
+				thousands: "."
+			});
+		}
+	}
+});
+
 
 /**
  * Filtro Responsavel por Formatar CNPJ
