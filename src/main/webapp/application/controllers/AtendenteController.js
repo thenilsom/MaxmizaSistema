@@ -46,14 +46,7 @@ angular.module('app').controller('AtendenteController', ['$scope', '$http', '$co
 		$scope.$acao.acaoIncluir();
 	}
 	
-	/**
-	 * Apresenta o formulário de 'Assunto' com campos Disable.
-	 */
-	$scope.visualizar = function(usuario) {
-		$scope.usuario = usuario;
-		$scope.$acao.acaoVisualizar();
-	}
-	
+		
 	/**
 	 * Apresenta o formulário de inclusão com os dados do 'Usuario' setados para alteração.
 	 */
@@ -74,7 +67,7 @@ angular.module('app').controller('AtendenteController', ['$scope', '$http', '$co
 	 * Excluir o usuario na base de dados e volta para o fluxo de listagem.
 	 */
 	$scope.excluir = function(usuarioExclusao){
-		$modelConfirm.addConfirm({msg: 'Confirma exclusão do usuário: '+usuarioExclusao.nome, actionYes : function(){
+		$modelConfirm.addConfirm({msg: 'Confirma exclusão do Atendente: '+usuarioExclusao.nome, actionYes : function(){
 			$http.post('usuario/excluir', { usuario : usuarioExclusao}).success(function(data){
 				
 				$scope.$acao.acaoListar();
@@ -105,6 +98,6 @@ angular.module('app').controller('AtendenteController', ['$scope', '$http', '$co
 	}
 	
 	/* A lista será inicializada ao abrir o caso de uso. */
-	//listar();
+	listar();
 	
 }]);

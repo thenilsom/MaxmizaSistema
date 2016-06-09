@@ -18,7 +18,7 @@ import br.com.sw3.persistence.exception.DAOException;
 /**
  * Classe de Implementação de Negócio referente a {@link Usuario}.
  * 
- * @author Paulo Leonardo de O. Miranda
+ * @author Denilson Godinho
  */
 @Named
 @Dependent
@@ -92,13 +92,8 @@ public class UsuarioBO {
 	 */
 	public void excluir(Usuario usuario) throws NegocioException {
 		try {
-			
-			if(usuarioDAO.existeUsuario(usuario.getId())){
-				throw new NegocioException(MessageCode.MSG_011);
-			}
-			
+						
 			usuarioDAO.excluir(usuario);
-			
 			
 		} catch (DAOException e) {
 			throw new NegocioException(e);

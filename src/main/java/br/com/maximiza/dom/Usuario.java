@@ -42,7 +42,7 @@ public class Usuario implements Entidade<Long> {
 	private String senha;
 	
 	@Column(name = "admin")
-	private boolean adimistrador;
+	private boolean administrador;
 	
 	@Column(name = "comissao")
 	private BigDecimal comissao;
@@ -108,13 +108,14 @@ public class Usuario implements Entidade<Long> {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
 
-	public boolean isAdimistrador() {
-		return adimistrador;
+	public boolean isAdministrador() {
+		return administrador;
 	}
 
-	public void setAdimistrador(boolean adimistrador) {
-		this.adimistrador = adimistrador;
+	public void setAdministrador(boolean administrador) {
+		this.administrador = administrador;
 	}
 
 	public String getConfirmacaoSenha() {
@@ -130,7 +131,7 @@ public class Usuario implements Entidade<Long> {
 	 * @return
 	 */
 	public Perfil getPerfilUsuario(){
-	 return isAdimistrador() ? Perfil.ADMIN : Perfil.SECRETARIA;
+	 return isAdministrador() ? Perfil.ADMIN : Perfil.SECRETARIA;
 	}
 
 	public BigDecimal getComissao() {

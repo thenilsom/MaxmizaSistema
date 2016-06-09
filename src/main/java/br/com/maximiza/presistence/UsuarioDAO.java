@@ -132,33 +132,4 @@ public class UsuarioDAO extends SAAGenericDAO<Usuario, Long> {
 		}
 	}
 	
-	/**
-	 * Verifica Se Usuario Existe antes de tentar excluir
-	 * @param id
-	 * @return
-	 * @throws DAOException
-	 */
-	public boolean existeUsuario(final Long id) throws DAOException{
-		try{
-					
-			StringBuilder jpql = new StringBuilder();
-			jpql.append("select count(usuarios.id) from Atendimento atendimento ");
-			jpql.append("inner join atendimento.usuarios usuarios ");
-			jpql.append("where usuarios.id = ?1");
-
-			Query query = getEntityManager().createQuery(jpql.toString());
-			query.setParameter(1, id);
-			
-			Long a = (Long) query.getSingleResult();
-			if(a < 1 ){
-				return false;
-			}
-			return true;
-			
-		}catch(NoResultException e){
-			throw new DAOException(e);
-		}catch(PersistenceException pe){
-			throw new DAOException(pe);
-		}
-	}
 }

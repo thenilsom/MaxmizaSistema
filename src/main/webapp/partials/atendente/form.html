@@ -20,7 +20,7 @@
 						<label class="col-md-2 col-sm-2 control-label" for="nome">Nome</label>
 						<div class="col-md-10 col-sm-10">
 							<input type="text" class="form-control input-sm" id="nome" data-focus
-							data-ng-model="usuario.nome" name="usuario.nome"
+							data-ng-model="usuario.nome" name="usuario.nome" required
 							data-ng-tabindex="1" /> 
 						</div>
 					</div>
@@ -52,7 +52,7 @@
 							<label class="col-md-2 col-sm-2 control-label" for="senha">Senha</label>
 					<div class="col-md-6 col-sm-6">		
 							<input type="password" class="form-control input-sm" id="senha"
-							data-ng-model="usuario.senha" name="usuario.senha"
+							data-ng-model="usuario.senha" name="usuario.senha" required
 							data-ng-tabindex="4"/> 
 					</div>	
 					</div>
@@ -61,7 +61,7 @@
 					<div class="form-group">
 							<label class="col-md-2 col-sm-2 control-label" for="confirmSenha">Confirmação</label>
 					<div class="col-md-6 col-sm-6">		
-							<input type="password" class="form-control input-sm" id="confirmSenha"
+							<input type="password" class="form-control input-sm" id="confirmSenha" required
 							data-ng-model="usuario.confirmacaoSenha" name="usuario.confirmacaoSenha"
 							data-ng-tabindex="5"/> 
 					</div>	
@@ -78,7 +78,7 @@
 						<button type="submit" class="btn btn-success">
 							Gravar <span class="glyphicon glyphicon-floppy-disk"></span>
 						</button>
-						<button type="button" class="btn btn-danger">
+						<button type="button" class="btn btn-danger" data-ng-click="cancelar()">
 							Sair <span class="glyphicon glyphicon-off"></span>
 						</button>
 					</div>

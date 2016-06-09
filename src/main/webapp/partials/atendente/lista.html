@@ -1,90 +1,87 @@
 <div class="row">
-<form name="perfil">
-	<div  class="panel panel-default panel-tabela">
-		<div class="tabela" >
-			<div>
-				<table class="table table-striped table-bordered table-condensed table-fixedheader" >
-					<thead>
-						<tr data-ng-init = "fieldName = 'nome'">			
-							<th class="col-sm-4" data-order data-ng-click="order('nome')" >Nome
-							<div data-ng-show="fieldName == 'nome'" data-ng-class="{reverse:reverse}"></div>
-							</th>
-							
-							<th class="col-sm-3" data-order data-ng-click="order('login')">Login
-							<div data-ng-show="fieldName == 'login'" data-ng-class="{reverse:reverse}"></div>
-							</th>
-							
-							<th class="col-sm-3" data-order data-ng-click="order('perfil')">Perfil
-							<div data-ng-show="fieldName == 'perfil'" data-ng-class="{reverse:reverse}"></div>
-							</th>
-							
-							<th class="col-sm-2">Ações</th>
-						</tr>
-					</thead>
-					<tbody >
-						<tr data-ng-repeat="usuario in listaTabela | orderBy:fieldName:reverse | filter:filtroUsuario | filter:search as filtros">
-						    
-							<td class="col-sm-4">{{usuario.nome}}</td>
-							<td class="col-sm-3">{{usuario.login}}</td>
-							<td class="col-sm-3">{{getDescricaoPerfil(usuario.perfil)}}</td>	
-							<td class="col-sm-2 row-botoes" data-title="'Ações'" >
-								<a class="btn btn-default btn-xs" data-ng-click="visualizar(usuario)" >
-						        	<span class="glyphicon glyphicon-search"></span>
-						        </a>	
-								<a class="btn btn-info btn-xs" data-ng-click="alterar(usuario)" >
-						        	<span class="glyphicon glyphicon-pencil"></span>
-						        </a>
-								<a class="btn btn-danger btn-xs" data-ng-click="excluir(usuario)">
-									<span class="glyphicon glyphicon-trash"></span>
-								</a>
-															
-							</td>	
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="panel-footer panel-footer-tabela">
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="input-group">
-						<span class="input-group-addon"> <span
-							class="glyphicon glyphicon-search"></span>
-						</span> <input id="inputFiltro" type="text" data-focus class="form-control"
-							placeholder="Pesquisa" data-ng-model="search.$">	
-					</div>
-	            </div>
-	            <div class="col-sm-6">
-	            	<div class="form-group">
-						<label class="col-md-1 control-label registros-tabela">Ativo:</label>
-						
-						<div class="col-md-2">
-							<label class="col-md-1 checkbox-inline control-label checkbox-tabela"> <input
-								type="checkbox" data-ng-model="filtro.ativo">
-							</label>
-						</div>
-			
-						<label class="col-md-2 control-label registros-tabela">Perfil:</label>
-						<div class="col-md-5">
-							<select name="perfil" data-ng-model="filtro.perfil"
-								id="perfil" class="form-control"
-								data-ng-options="key as val for (key, val) in perfis">
-								<option value="">Todos</option>
-							</select>
-						</div>
-           		   </div>
-	            </div>
-	          
-	            <div class="col-md-2 text-right registros-tabela">
-	              <span>Total de Registros: {{filtros.length}}</span>
-	            </div>       		
-			</div>	
-		</div>
-	</div>	
-	<div class="panel panel-default text-center panel-botoes-tabela">
-		<a class="btn btn-primary" data-ng-click="incluir()" >
-        	<span class="glyphicon glyphicon-plus"></span>Novo
-        </a>
+
+	<div class="panel panel-default">
+	
+	<div class="panel-heading">
+		<h2 class="panel-title">Listagem de Atendentes</h2>
 	</div>
-	</form>
+
+	<div class="panel-body fundo-panel">
+
+		<div class="wrapper-responsivo">
+			<div class="table-overflow">
+				<div class="row-responsivo header blue">
+
+					<div class="cell-responsivo col-md-8 col-sm-6">Nome</div>
+
+					<div class="cell-responsivo col-md-2 col-sm-4">Administrador</div>
+					
+					<div class="cell-responsivo col-md-2 col-sm-2">Ações</div>
+
+				</div>
+				
+				</div>
+				
+				<div class="fixed-panel">
+				<div class="table-overflow">
+
+					<div class="row-responsivo" data-ng-repeat="atendente in listaTabela | filter:search as filtros">
+
+						<div class="cell-responsivo col-md-8 col-sm-6"> <span> {{atendente.nome}} </span> </div>
+
+						<div class="cell-responsivo col-md-2 col-sm-4"> <span class="span-cell"> {{atendente.administrador ? 'S' : 'N'}} </span></div>
+						
+						<div class="cell-responsivo col-md-2 col-sm-2">
+						<span class="span-cell">
+							<a class="btn btn-info btn-xs" title="Alterar" data-ng-click="alterar(atendente)">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a> 
+							<a class="btn btn-danger btn-xs" title="Excluir" data-ng-click="excluir(atendente)">
+								<span class="glyphicon glyphicon-trash"></span>
+							</a> 
+						</span>
+							
+						</div>
+
+					</div>
+					
+					</div>
+
+		</div>
+		
+		<div class="row-responsivo row-filtro">
+					
+					<!-- Pesquisa -->
+					<div class="cell-responsivo col-md-6 col-sm-6">
+					
+					<div class="input-group">
+						<span class="input-group-addon"> 
+						<span class="glyphicon glyphicon-search"></span>
+						</span> <input id="inputFiltro" type="text" data-focus
+							class="form-control" placeholder="Pesquisa"
+							data-ng-model="search.$" />
+					</div>
+
+					</div>
+				
+					<!-- Total Registros -->
+					<div class="cell-responsivo col-md-6 col-sm-6">
+						<div class="col-md-12 col-sm-12 text-right registros-tabela">
+							<span>Registros: {{filtros.length}}</span>
+						</div>
+					</div>
+
+			  </div>
+		
+	</div>
+	
+	<div class="panel panel-default text-center panel-botoes-tabela">
+		<a class="btn btn-primary" data-ng-click="incluir()"><span
+			class="glyphicon glyphicon-plus"></span> Novo </a> 
+		</div>
+
+</div>
+
+</div>
+
 </div>
