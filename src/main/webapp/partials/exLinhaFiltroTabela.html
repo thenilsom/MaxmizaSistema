@@ -1,0 +1,34 @@
+<div class="row-responsivo">
+					
+					<!-- Pesquisa -->
+					<div class="cell-responsivo col-md-6 col-sm-5">
+					
+					<div class="input-group">
+						<span class="input-group-addon"> 
+						<span class="glyphicon glyphicon-search"></span>
+						</span> <input id="inputFiltro" type="text" data-focus
+							class="form-control" placeholder="Pesquisa"
+							data-ng-model="search.$" />
+					</div>
+
+					</div>
+					
+					<!-- Filtro Usuario Admin -->
+					<div class="cell-responsivo col-md-4 col-sm-3 col-xs-12">
+					<label class="col-md-2 col-sm-5 col-xs-4 control-label registros-tabela">Admin:</label>
+					
+					<div class="col-md-2 col-sm-2 col-xs-8">
+						<label class="col-md-1 col-sm-1 col-xs-8 checkbox-inline control-label checkbox-tabela"> <input
+							type="checkbox" data-ng-model="filtro.ativo">
+						</label>
+					</div>
+					</div>
+
+					<!-- Total Registros -->
+					<div class="cell-responsivo col-md-2 col-sm-4">
+						<div class="col-md-12 col-sm-12 text-right registros-tabela">
+							<span>Registros: 100{{filtros.length}}</span>
+						</div>
+					</div>
+
+						</div>
